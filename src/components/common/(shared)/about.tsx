@@ -1,18 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "use-intl";
+import { useLocale, useTranslations } from "use-intl";
 
 export default function About() {
   // Translation
   const t = useTranslations();
+  const locale = useLocale();
 
+  // Check if the locale is Arabic
+  const isArabic = locale === "ar";
   return (
-    <section className=" py-12 px-6 md:px-12">
+    <section dir={isArabic ? "rtl" : "ltr"} className=" py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Left - Images */}
         <div className="grid grid-cols-2 gap-4">
           <div className="col-span-1 row-span-2">
             <img
-              src="/assets/images/about/about-1.png"
+              src={`${
+                import.meta.env.BASE_URL
+              }/assets/images/about/about-1.png`}
               alt="Trainer Main"
               className="rounded-xl object-cover w-full h-full"
             />
@@ -20,7 +25,9 @@ export default function About() {
 
           <div className="col-span-1">
             <img
-              src="/assets/images/about/about-2.png"
+              src={`${
+                import.meta.env.BASE_URL
+              }/assets/images/about/about-2.png`}
               alt="Trainer Top Right"
               className="rounded-xl object-cover w-full h-[188px]"
             />
@@ -28,7 +35,9 @@ export default function About() {
 
           <div className="col-span-1">
             <img
-              src="/assets/images/about/about-3.png"
+              src={`${
+                import.meta.env.BASE_URL
+              }/assets/images/about/about-3.png`}
               alt="Trainer Bottom Right"
               className="rounded-xl object-cover w-full h-full"
             />

@@ -52,7 +52,6 @@ export default function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-
   return (
     <header
       dir={locale === "ar" ? "rtl" : "ltr"}
@@ -65,7 +64,7 @@ export default function Header() {
       {/* Header logo */}
       <NavLink to={"/"}>
         <img
-          src={"/assets/images/logo/logo.png"}
+          src={`${import.meta.env.BASE_URL}/assets/images/logo/logo.png`}
           alt="logo"
           width={86}
           height={86}
@@ -88,7 +87,9 @@ export default function Header() {
               {/* Header logo */}
               <NavLink to={"/"}>
                 <img
-                  src={"/assets/images/logo/logo.png"}
+                  src={`${
+                    import.meta.env.BASE_URL
+                  }/assets/images/logo/logo.png`}
                   alt="logo"
                   width={86}
                   height={86}

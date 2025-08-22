@@ -7,7 +7,7 @@ export default function useRegister() {
   // Translations
   const t = useTranslations();
   const locale = useLocale();
-  
+
   const {
     isPending,
     error,
@@ -30,6 +30,9 @@ export default function useRegister() {
     },
     onError: (error: Error) => {
       toast.error(error?.message || "Something went wrong");
+      setTimeout(() => {
+        window.location.href = `/SuperFitness/${locale}/auth/register`;
+      }, 1500);
     },
   });
 

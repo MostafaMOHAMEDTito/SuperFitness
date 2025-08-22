@@ -2,16 +2,17 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import ChatWindow from "../features/chatbot/chat-window";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslations } from "use-intl";
+import { useLocale, useTranslations } from "use-intl";
 import { useLocation } from "react-router-dom";
 
 export default function ChatButton() {
   // Translation
   const t = useTranslations();
+  const locale = useLocale();
 
   // Navigation
   const location = useLocation();
-  
+
   // States
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,7 +20,7 @@ export default function ChatButton() {
   const toggleChat = () => {
     setIsOpen((prev) => !prev);
   };
-  
+
   // Variables
   const isAuthPage = location.pathname.includes("/auth");
 
@@ -27,7 +28,7 @@ export default function ChatButton() {
   if (isAuthPage) return null;
 
   return (
-    <>
+    <section dir={locale === "ar" ? "rtl" : "ltr"}>
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -47,7 +48,7 @@ export default function ChatButton() {
             >
               <div className="flex flex-col items-center justify-center">
                 <img
-                  src="/assets/chatbot.png"
+                  src={`${import.meta.env.BASE_URL}/assets/chatbot.png`}
                   alt="Chatbot"
                   width={120}
                   height={0}
@@ -70,14 +71,18 @@ export default function ChatButton() {
       {/* Only show the main button when chat is closed */}
       {!isOpen && (
         <motion.div
-          className="fixed bottom-4 right-4 z-50"
+          className={`${
+            locale === "ar"
+              ? "rtl fixed bottom-4 left-4 z-50"
+              : "ltr fixed bottom-4 right-4 z-50"
+          }`}
           initial={false}
           animate={{ scale: 1 }}
           whileHover={{ scale: 1.05 }}
         >
           <div className="flex flex-col items-center justify-center">
             <img
-              src="/assets/chatbot.png"
+              src={`${import.meta.env.BASE_URL}/assets/chatbot.png`}
               alt="Chatbot"
               width={120}
               height={0}
@@ -94,6 +99,6 @@ export default function ChatButton() {
           </div>
         </motion.div>
       )}
-    </>
+    </section>
   );
 }

@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Logo and tagline */}
           <div className="space-y-3">
             <img
-              src="/assets/images/logo/logo.png"
+              src={`${import.meta.env.BASE_URL}/assets/images/logo/logo.png`}
               alt="Super Fitness Logo"
               className="w-24"
             />

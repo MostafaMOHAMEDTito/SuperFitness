@@ -141,7 +141,9 @@ export default function WhyUs() {
         >
           <div className="w-full sm:w-1/2 flex flex-col gap-3">
             <motion.img
-              src="/assets/whyus/a084847171b82e0d3555197c79e4a4fe411372a0.png"
+              src={`${
+                import.meta.env.BASE_URL
+              }/assets/whyus/a084847171b82e0d3555197c79e4a4fe411372a0.png`}
               alt="Personal trainer assisting client 1"
               className="rounded-lg object-cover h-44 sm:h-[378px] w-full"
               whileHover={{
@@ -152,7 +154,9 @@ export default function WhyUs() {
               loading="lazy"
             />
             <motion.img
-              src="/assets/whyus/0b929cce1233f01c708099e24e0cfde887311fba.jpg"
+              src={`${
+                import.meta.env.BASE_URL
+              }/assets/whyus/0b929cce1233f01c708099e24e0cfde887311fba.jpg`}
               alt="Personal trainer assisting client 3"
               className="rounded-lg object-cover h-44 sm:h-80 w-full"
               whileHover={{
@@ -165,7 +169,9 @@ export default function WhyUs() {
           </div>
           <div className="w-full sm:w-1/2 flex flex-col gap-3 justify-center pt-8">
             <motion.img
-              src="/assets/whyus/915a60319b233e8b179edea6ec6411a41a392d9a.jpg"
+              src={`${
+                import.meta.env.BASE_URL
+              }/assets/whyus/915a60319b233e8b179edea6ec6411a41a392d9a.jpg`}
               alt="Personal trainer assisting client 2"
               className="rounded-lg object-cover h-44 sm:h-72 w-full"
               whileHover={{
@@ -176,7 +182,9 @@ export default function WhyUs() {
               loading="lazy"
             />
             <motion.img
-              src="/assets/whyus/80ded4712cd34108c0b7efc51d18667ba5243e06.png"
+              src={`${
+                import.meta.env.BASE_URL
+              }/assets/whyus/80ded4712cd34108c0b7efc51d18667ba5243e06.png`}
               alt="Personal trainer assisting client 4"
               className="rounded-lg object-cover h-44 sm:h-80 w-full"
               whileHover={{

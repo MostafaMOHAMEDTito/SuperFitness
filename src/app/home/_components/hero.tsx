@@ -7,7 +7,7 @@ export default function Hero() {
   const t = useTranslations();
   const format = useFormatter();
   const locale = useLocale();
-  
+
   return (
     <>
       <section
@@ -89,7 +89,7 @@ export default function Hero() {
           {/* Image */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
             <img
-              src="/assets/images/hero/hero.png"
+              src={`${import.meta.env.BASE_URL}assets/images/hero/hero.png`}
               alt="Fitness Hero"
               className="max-w-[300px] sm:max-w-[400px] lg:max-w-full h-auto rounded-lg z-10"
             />

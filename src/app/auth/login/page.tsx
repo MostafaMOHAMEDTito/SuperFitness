@@ -19,16 +19,10 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function LoginPage() {
-  // Translations
   const t = useTranslations();
-
-  // State
   const [showPassword, setShowPassword] = useState(false);
-
-  // Custom hook for login
   const { login, isPending } = useLogin();
 
-  // Form handling
   const {
     register,
     handleSubmit,
@@ -37,15 +31,13 @@ export default function LoginPage() {
     resolver: zodResolver(loginSchema),
   });
 
-  // Handle form submission
   const onSubmit = (data: LoginFormValues) => {
     login(data);
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen text-white p-4 bg-gradient-to-br">
-      <div className="w-full max-w-lg mx-auto text-center mb-8 px-4">
-        {/* Title */}
+    <div className="w-full max-h-screen flex flex-col items-center justify-center text-white p-4 bg-gradient-to-br overflow-hidden">
+      <div className="w-full max-w-lg mx-auto text-center mb-4 px-4">
         <p className="text-zinc-800 dark:text-main-foreground text-xl md:text-2xl font-baloo mb-2">
           {t("hey-there")},
         </p>
@@ -54,13 +46,11 @@ export default function LoginPage() {
         </h2>
       </div>
 
-      <div className="w-full max-w-md rounded-3xl p-6 sm:p-10 border border-zinc-800 dark:border-[#D3D3D3]">
-        {/* Title */}
-        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-center text-zinc-800 dark:text-main-foreground font-baloo mb-6">
+      <div className="w-full max-w-md rounded-3xl p-6 sm:p-8 border border-zinc-800 dark:border-[#D3D3D3]">
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-center text-zinc-800 dark:text-main-foreground font-baloo mb-4">
           {t("login-page")}
         </h3>
 
-        {/* Login form */}
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           {/* Email input */}
           <div>
@@ -78,7 +68,7 @@ export default function LoginPage() {
           </div>
 
           {/* Password input */}
-          <div className="mb-4 relative">
+          <div className="relative">
             <Eye
               className="absolute right-4 top-2.5 text-zinc-800 dark:text-main-foreground cursor-pointer"
               onClick={() => setShowPassword(!showPassword)}
@@ -96,10 +86,10 @@ export default function LoginPage() {
             )}
           </div>
 
-          {/* Link forget password */}
+          {/* Forget password */}
           <Link
             to={"/en/auth/forget-password"}
-            className="block w-fit ms-auto text-right text-sm text-main hover:underline mb-6 font-baloo font-semibold"
+            className="block w-fit ms-auto text-right text-sm text-main hover:underline mb-4 font-baloo font-semibold"
           >
             {t("forget-password")}
           </Link>
@@ -124,7 +114,7 @@ export default function LoginPage() {
           </Button>
 
           {/* Register link */}
-          <div className="text-center text-sm mt-8 text-zinc-800 dark:text-main-foreground font-medium font-baloo">
+          <div className="text-center text-sm mt-6 text-zinc-800 dark:text-main-foreground font-medium font-baloo">
             {t("you-dont-have-an-account")}{" "}
             <Link
               to={"/en/auth/register"}

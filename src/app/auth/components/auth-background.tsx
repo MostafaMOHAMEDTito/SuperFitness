@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 export const AuthBackground: React.FC = () => {
   return (
     <>
       <img
-        src="/assets/auth/bg.png"
+        src={`${import.meta.env.BASE_URL}/assets/auth/bg.png`}
         className="w-full h-full object-cover absolute z-0"
         alt="Background"
       />
@@ -13,4 +13,4 @@ export const AuthBackground: React.FC = () => {
   );
 };
 
-export default AuthBackground; 
+export default AuthBackground;
