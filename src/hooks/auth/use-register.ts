@@ -25,7 +25,7 @@ export default function useRegister() {
     onSuccess: () => {
       toast.success(t("account-created"));
       setTimeout(() => {
-        window.location.href = `/${locale}/auth/login`;
+        window.location.href = `/SuperFitness/${locale}/auth/login`;
       }, 1000);
     },
     onError: (error: Error) => {
