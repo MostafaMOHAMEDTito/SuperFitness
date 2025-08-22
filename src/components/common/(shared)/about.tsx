@@ -9,7 +9,10 @@ export default function About() {
   // Check if the locale is Arabic
   const isArabic = locale === "ar";
   return (
-    <section dir={isArabic ? "rtl" : "ltr"} className=" py-12 px-6 md:px-12">
+    <section
+      dir={isArabic ? "rtl" : "ltr"}
+      className=" py-12 px-6 md:px-12 bg-muted"
+    >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Left - Images */}
         <div className="grid grid-cols-2 gap-4">
@@ -65,7 +68,7 @@ export default function About() {
                 <img src="/assets/icon/arrow.svg" alt="" />{" "}
                 {t("personal-trainer")}
               </h4>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 {t(
                   "achieve-your-fitness-goals-with-the-guidance-of-our-certified-trainers"
                 )}
@@ -76,7 +79,7 @@ export default function About() {
                 <img src="/assets/icon/arrow.svg" alt="" />{" "}
                 {t("cardio-programs")}
               </h4>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 {t(
                   "from-steady-state-runs-to-interval-sprints-our-treadmill-programs"
                 )}
@@ -87,7 +90,7 @@ export default function About() {
                 <img src="/assets/icon/arrow.svg" alt="" />{" "}
                 {t("quality-equipment")}
               </h4>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 {t(
                   "our-gym-is-equipped-with-the-latest-cardio-and-strength-machines"
                 )}
@@ -98,7 +101,7 @@ export default function About() {
                 <img src="/assets/icon/arrow.svg" alt="" />{" "}
                 {t("healthy-nutritions-0")}
               </h4>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 {t(
                   "fuel-your-fitness-journey-with-customized-meal-plans-for-you"
                 )}

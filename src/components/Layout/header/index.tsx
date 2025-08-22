@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from "use-intl";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import NavbarThemeSwitcher from "@/components/custom/navbar-theme-switcher";
 import NavbarLanguageSwitcher from "@/components/custom/navbar-lang-switcher";
+import { FaRegUser } from "react-icons/fa";
 
 export default function Header() {
   // Translation
@@ -17,10 +18,13 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const token = window.localStorage.getItem("token");
+
   // States
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
+  const [islogin, setIslogin] = useState<boolean>(false);
 
   // Scroll handler
   useEffect(() => {
@@ -31,6 +35,12 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (token) {
+      setIslogin(true);
+    }
+  }, [token]);
 
   // Functions
   const toggleMenu = () => {
@@ -118,30 +128,42 @@ export default function Header() {
           <NavbarLanguageSwitcher />
           <NavbarThemeSwitcher />
         </div>
-        <Button
-          onClick={() => {
-            navigate("auth/login");
-            toggleMenu();
-          }}
-          variant={"default"}
-        >
-          {t("login")}
-        </Button>
+        {/* If login */}
+        {!islogin ? (
+          <div className="flex items-center gap-2">
+            <Button
+              onClick={() => {
+                navigate("auth/login");
+                toggleMenu();
+              }}
+              variant={"default"}
+            >
+              {t("login")}
+            </Button>
 
-        <Link to="auth/register">
-          <Button onClick={toggleMenu} variant={"outline"}>
-            {t("sign-up")}
-          </Button>
-        </Link>
+            <Link to="auth/register">
+              <Button onClick={toggleMenu} variant={"outline"}>
+                {t("sign-up")}
+              </Button>
+            </Link>
+          </div>
+        ) : (
+          <Link
+            to={`/${locale}/account`}
+            className="flex items-center mx-2 text-main"
+          >
+            <FaRegUser size={22} />
+          </Link>
+        )}
 
         {/* Menubar icon */}
         <Button
           onClick={toggleMenu}
           size={"icon"}
-          variant={"destructive"}
+          variant={"default"}
           className="md:hidden"
         >
-          <CgMenuRightAlt size={28} className="text-mubg-muted-foreground" />
+          <CgMenuRightAlt size={28} className="text-muted" />
         </Button>
       </div>
     </header>

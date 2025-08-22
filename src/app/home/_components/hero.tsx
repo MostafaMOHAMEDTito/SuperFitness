@@ -17,7 +17,7 @@ export default function Hero() {
         {/* Background outside container */}
         <div className="absolute inset-0 z-5 bg-[url('/assets/images/hero/background-image.png')] bg-cover bg-left bg-no-repeat " />
 
-        <div className="absolute inset-0 z-10 bg-white/60 dark:bg-black/80 backdrop-blur-[30.1px]" />
+        <div className="absolute inset-0 z-10 bg-white/60 dark:bg-black/70 backdrop-blur-[5.1px]" />
 
         {/* Container with content */}
         <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10 px-6 pt-12 lg:pt-24">

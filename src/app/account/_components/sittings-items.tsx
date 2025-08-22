@@ -88,7 +88,7 @@ export default function SittingsItems() {
         <div
           key={index}
           className={cn(
-            "bg-transparent border border-zinc-800 dark:border-main-foreground p-4 rounded-xl flex flex-col items-center justify-center gap-2 min-h-40",
+            "bg-transparent border border-muted-foreground  p-4 rounded-xl flex flex-col items-center justify-center gap-2 max-h-30",
             index === 6 && "col-start-2 col-end-3"
           )}
         >
@@ -101,7 +101,7 @@ export default function SittingsItems() {
           </div>
 
           {/* Title */}
-          <h2 className="text-lg font-baloo font-semibold text-zinc-800 dark:text-main-foreground capitalize">
+          <h2 className="text-lg font-baloo font-semibold text-main-foreground capitalize">
             {item.title === t("mode") ? (
               <>
                 {item.title} (<span className="text-main px-1">{t(theme)}</span>
@@ -114,7 +114,7 @@ export default function SittingsItems() {
 
           {/* If the item is select-language, show the current language switcher*/}
           {item.title === t("select-language") && (
-            <p className="text-lg font-baloo font-bold text-zinc-800 dark:text-main-foreground capitalize">
+            <p className="text-lg font-baloo font-bold text-main-foreground capitalize">
               (<LanguageSwitcher />)
             </p>
           )}

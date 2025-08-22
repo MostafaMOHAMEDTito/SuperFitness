@@ -43,7 +43,7 @@ export default function TopItems({
   ];
 
   return (
-    <div className="flex gap-14 relative z-20">
+    <div className="flex gap-14 relative z-20 mt-6">
       {items.map((item, index) => (
         <div key={index} className="flex flex-col gap-6 items-center w-1/3">
           <div className="text-center">

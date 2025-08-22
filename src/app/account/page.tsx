@@ -21,7 +21,7 @@ export default function AccountPage() {
     );
 
   return (
-    <section className="min-h-screen py-10 relative">
+    <section className="max-h-screen py-10 relative">
       <div className="max-w-3xl mx-auto h-full">
         {/* Top items */}
         <TopItems
@@ -36,9 +36,9 @@ export default function AccountPage() {
       </div>
 
       {/* Background */}
-      <div className="absolute top-0 left-0 w-full h-full bg-white/70 dark:bg-black/75 backdrop-blur-lg z-10"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-muted/70 backdrop-blur-sm z-10"></div>
       <img
-        src="/assets/section-bg.png"
+        src={`${import.meta.env.BASE_URL}/assets/section-bg.png`}
         alt="section-bg"
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       />
